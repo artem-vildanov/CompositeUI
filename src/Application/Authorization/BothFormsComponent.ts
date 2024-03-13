@@ -1,8 +1,8 @@
 import { LoginComponent } from "./LoginComponent.js";
 import { SignupComponent } from "./SignupComponent.js";
 import {ViewComponent} from "../../Framework/ViewComponent.js";
-import {FormComposite} from "../../Framework/Composites/FormComposite.js";
-import {TextAreaLeaf} from "../../Framework/Leafs/TextAreaLeaf.js";
+import {FormComposite} from "../../Framework/CompositeViewComponents/FormComposite.js";
+import {TextAreaLeaf} from "../../Framework/LeafViewComponents/TextAreaLeaf.js";
 
 export class BothFormsComponent extends ViewComponent{
     constructor() {

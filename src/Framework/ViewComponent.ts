@@ -1,12 +1,12 @@
-import {Component} from "./Component";
-import {CompositeComponent} from "./CompositeComponent";
+import {ComponentImp} from "./AbstractViewComponents/ComponentImp";
+import {CompositeComponent} from "./AbstractViewComponents/CompositeComponent";
 
 
 export abstract class ViewComponent {
     private readonly viewComponent: CompositeComponent;
     private readonly html: string;
 
-    protected constructor(viewComponent: CompositeComponent, childrenComponents: Array<Component>) {
+    protected constructor(viewComponent: CompositeComponent, childrenComponents: Array<ComponentImp>) {
         this.viewComponent = viewComponent;
         this.viewComponent.addChildrenComponents(childrenComponents);
         this.html = this.viewComponent.renderHtml();

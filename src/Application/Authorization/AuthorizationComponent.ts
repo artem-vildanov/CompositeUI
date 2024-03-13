@@ -1,7 +1,7 @@
 import { BothFormsComponent } from "./BothFormsComponent.js";
 import {ViewComponent} from "../../Framework/ViewComponent.js";
-import {ImageBoxComposite} from "../../Framework/Composites/ImageBoxComposite.js";
-import {TextAreaLeaf} from "../../Framework/Leafs/TextAreaLeaf.js";
+import {ImageBoxComposite} from "../../Framework/CompositeViewComponents/ImageBoxComposite.js";
+import {TextAreaLeaf} from "../../Framework/LeafViewComponents/TextAreaLeaf.js";
 
 export class AuthorizationComponent extends ViewComponent{
     constructor() {

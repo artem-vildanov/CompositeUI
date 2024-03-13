@@ -1,6 +1,6 @@
 import {ViewComponent} from "../../Framework/ViewComponent.js";
-import {FormComposite} from "../../Framework/Composites/FormComposite.js";
-import {ButtonLeaf} from "../../Framework/Leafs/ButtonLeaf.js";
+import {FormComposite} from "../../Framework/CompositeViewComponents/FormComposite.js";
+import {ButtonLeaf} from "../../Framework/LeafViewComponents/ButtonLeaf.js";
 import { LoginCredentialsComponent } from "./LoginCredentialsComponent.js";
 
 
