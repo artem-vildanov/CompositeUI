@@ -1,13 +1,14 @@
 import { LeafComponent } from "../AbstractViewComponents/LeafComponent.js";
+import {ComponentParams} from "../AbstractViewComponents/ComponentParams";
 
 export class InputFieldLeaf extends LeafComponent
 {
-    constructor(text: string, cssClass: string = 'form-control m-1') {
-        super(text, cssClass);
+    constructor(componentParams: ComponentParams) {
+        super(componentParams);
         this.html = this.makeLeafHtml();
     }
 
-    makeLeafHtml(): string {
-        return `<input type="text" class=\"${this.cssClass}\" placeholder=\"${this.text}\">`;
+    protected makeLeafHtml(): string {
+        return `<input type="text" class="${this.componentParams.css}" placeholder="${this.componentParams.text}" style="${this.componentParams.getStyles()}">`;
     }
 }

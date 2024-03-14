@@ -1,13 +1,14 @@
 import { LeafComponent } from "../AbstractViewComponents/LeafComponent.js";
+import {ComponentParams} from "../AbstractViewComponents/ComponentParams.js";
 
 export class TextAreaLeaf extends LeafComponent
 {
-    constructor(text: string, cssClass: string = 'm-1') {
-        super(text, cssClass);
+    constructor(componentParams: ComponentParams) {
+        super(componentParams);
         this.html = this.makeLeafHtml();
     }
 
-    makeLeafHtml(): string {
-        return `<div class=\"${this.cssClass}\">${this.text}</div>`;
+    protected makeLeafHtml(): string {
+        return `<div class="${this.componentParams.css}" style="${this.componentParams.getStyles()}">${this.componentParams.text}</div>`;
     }
 }

@@ -1,13 +1,14 @@
 import { LeafComponent } from "../AbstractViewComponents/LeafComponent.js";
+import {ComponentParams} from "../AbstractViewComponents/ComponentParams.js";
 
 export class ButtonLeaf extends LeafComponent
 {
-    constructor(text: string, cssClass: string = 'btn btn-primary m-1') {
-        super(text, cssClass);
+    constructor(componentParams: ComponentParams) {
+        super(componentParams);
         this.html = this.makeLeafHtml();
     }
 
-    makeLeafHtml(): string {
-        return `<button class=\"${this.cssClass}\">${this.text}</button>`;
+    protected makeLeafHtml(): string {
+        return `<button class="${this.componentParams.css}" style="${this.componentParams.getStyles()}">${this.componentParams.text}</button>`;
     }
 }

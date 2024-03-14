@@ -1,9 +1,10 @@
-import { ComponentImp } from "./ComponentImp.js";
+import { Component } from "./Component.js";
+import {ComponentParams} from "./ComponentParams.js";
 
-export abstract class LeafComponent extends ComponentImp{
-    protected constructor(text: string, cssClass: string) {
-        super(text, cssClass);
+export abstract class LeafComponent extends Component{
+    protected constructor(componentParams: ComponentParams) {
+        super(componentParams);
     }
 
-    abstract makeLeafHtml(): string;
+    protected abstract makeLeafHtml(): string;
 }

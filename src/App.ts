@@ -1,26 +1,27 @@
-import { AuthorizationComponent } from "./Application/Authorization/AuthorizationComponent.js";
-import { LoginComponent } from "./Application/Authorization/LoginComponent.js";
-import { SignupComponent } from "./Application/Authorization/SignupComponent.js";
+import {loginViewHtml} from "./Application/loginView.js";
+import {signUpViewHtml} from "./Application/signupView.js";
+import {authHtmlView} from "./Application/authView.js";
 
 const entryPoint = document.getElementById('entryPoint');
 
-export function renderRegistrationView() {
+export function renderLoginView() {
     if (entryPoint) {
-        entryPoint.innerHTML = new SignupComponent().renderView();
+        entryPoint.innerHTML = loginViewHtml
     }
 }
 
-export function renderLoginView() {
+export function renderRegistrationView() {
     if (entryPoint) {
-        entryPoint.innerHTML = new LoginComponent().renderView();
+        entryPoint.innerHTML = signUpViewHtml
     }
 }
 
 export function renderAuthorizationView() {
     if (entryPoint) {
-        entryPoint.innerHTML = new AuthorizationComponent().renderView();
+        entryPoint.innerHTML = authHtmlView
     }
 }
+
 
 
 

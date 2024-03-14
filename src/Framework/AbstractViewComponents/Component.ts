@@ -1,9 +1,18 @@
+import {ComponentParams} from "./ComponentParams.js";
 
-export interface Component {
-    setColor(): any;
-    setFontSize(): any;
-    setCss(): any;
-    setText(): any;
-    build(): void;   
-    renderHtml(): string; 
+
+export abstract class Component {
+    protected html: string | null = null;
+    protected componentParams: ComponentParams;
+    protected constructor(componentParams: ComponentParams) {
+        this.componentParams = componentParams
+    }
+
+    renderHtml(): string {
+        if (!this.html) {
+            throw Error("failed to render html")
+        }
+
+        return this.html;
+    }
 }
