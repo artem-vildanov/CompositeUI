@@ -6,17 +6,29 @@ const inputEmail = ComponentBuilder
     .buildLeafComponent()
     .buildInputField()
 
+const inputName = ComponentBuilder
+    .makeComponent()
+    .setText('Your name')
+    .buildLeafComponent()
+    .buildInputField()
+
 const inputPassword = ComponentBuilder
     .makeComponent()
     .setText('Password')
     .buildLeafComponent()
     .buildInputField()
 
+const repeatPassword = ComponentBuilder
+    .makeComponent()
+    .setText('Repeat password')
+    .buildLeafComponent()
+    .buildInputField()
+
 const textArea = ComponentBuilder
     .makeComponent()
-    .setText('Enter credentials')
+    .setText('Sign Up')
     .setFontWeight('bold')
-    .setFontSize('60px')
+    .setFontSize('20px')
     .buildLeafComponent()
     .buildTextArea()
 
@@ -28,7 +40,9 @@ export const signUpForm = ComponentBuilder
     .addChildrenComponents([
         textArea,
         inputEmail,
-        inputPassword
+        inputName,
+        inputPassword,
+        repeatPassword
     ])
     .buildCompositeComponent()
     .buildForm()

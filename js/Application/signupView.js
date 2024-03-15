@@ -4,16 +4,26 @@ var inputEmail = ComponentBuilder
     .setText('youremail@example.com')
     .buildLeafComponent()
     .buildInputField();
+var inputName = ComponentBuilder
+    .makeComponent()
+    .setText('Your name')
+    .buildLeafComponent()
+    .buildInputField();
 var inputPassword = ComponentBuilder
     .makeComponent()
     .setText('Password')
     .buildLeafComponent()
     .buildInputField();
+var repeatPassword = ComponentBuilder
+    .makeComponent()
+    .setText('Repeat password')
+    .buildLeafComponent()
+    .buildInputField();
 var textArea = ComponentBuilder
     .makeComponent()
-    .setText('Enter credentials')
+    .setText('Sign Up')
     .setFontWeight('bold')
-    .setFontSize('60px')
+    .setFontSize('20px')
     .buildLeafComponent()
     .buildTextArea();
 export var signUpForm = ComponentBuilder
@@ -24,7 +34,9 @@ export var signUpForm = ComponentBuilder
     .addChildrenComponents([
     textArea,
     inputEmail,
-    inputPassword
+    inputName,
+    inputPassword,
+    repeatPassword
 ])
     .buildCompositeComponent()
     .buildForm();

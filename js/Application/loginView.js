@@ -14,7 +14,7 @@ var textArea = ComponentBuilder
     .makeComponent()
     .setText('Enter credentials')
     .setFontWeight('bold')
-    .setFontSize('30px')
+    .setFontSize('20px')
     .buildLeafComponent()
     .buildTextArea();
 export var loginForm = ComponentBuilder
