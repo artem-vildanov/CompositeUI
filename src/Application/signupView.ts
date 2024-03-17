@@ -1,4 +1,4 @@
-import {ComponentBuilder} from "../Framework/AbstractViewComponents/ComponentBuilder.js";
+import {ComponentBuilder} from "../Framework/ComponentBuilders/ComponentBuilder.js";
 
 const inputEmail = ComponentBuilder
     .makeComponent()
@@ -15,14 +15,31 @@ const inputName = ComponentBuilder
 const inputPassword = ComponentBuilder
     .makeComponent()
     .setText('Password')
+    .setType('password')
     .buildLeafComponent()
     .buildInputField()
 
 const repeatPassword = ComponentBuilder
     .makeComponent()
     .setText('Repeat password')
+    .setType('password')
     .buildLeafComponent()
     .buildInputField()
+
+const inputFieldsList = ComponentBuilder
+    .makeComponent()
+    .addChildrenComponents([
+        inputEmail,
+        inputName,
+        inputPassword,
+        repeatPassword
+    ])
+    // .setCssClass('none', 'none')
+    // .setType('none')
+    // .setMargin('0px')
+    // .setPadding('0px')
+    .buildCompositeComponent()
+    .buildList()
 
 const textArea = ComponentBuilder
     .makeComponent()
@@ -32,17 +49,23 @@ const textArea = ComponentBuilder
     .buildLeafComponent()
     .buildTextArea()
 
+
+const submitButton = ComponentBuilder
+    .makeComponent()
+    .setText('Submit')
+    .setMargin('10px')
+    .buildLeafComponent()
+    .buildButton()
+
 export const signUpForm = ComponentBuilder
     .makeComponent()
     .setWidth('50%')
-    .setMargin('10px')
+    .setMargin('20px')
     .setPadding('20px')
     .addChildrenComponents([
         textArea,
-        inputEmail,
-        inputName,
-        inputPassword,
-        repeatPassword
+        inputFieldsList,
+        submitButton
     ])
     .buildCompositeComponent()
     .buildForm()

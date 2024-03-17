@@ -22,8 +22,8 @@ var TextAreaLeafProxy = /** @class */ (function (_super) {
     }
     TextAreaLeafProxy.prototype.textAreaValidation = function () {
         this.validateComponentParams();
-        if (this.componentParams.css === '') {
-            this.componentParams.css = 'm-1';
+        if (this.componentParams.cssClass === '') {
+            this.componentParams.cssClass = 'm-1';
         }
     };
     TextAreaLeafProxy.prototype.renderHtml = function () {

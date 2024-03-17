@@ -22,11 +22,11 @@ var ListCompositeProxy = /** @class */ (function (_super) {
     }
     ListCompositeProxy.prototype.listValidation = function () {
         this.validateComponentParams();
-        if (!this.componentParams.css) {
-            this.componentParams.css = 'list-group list-group-flush p-2';
+        if (!this.componentParams.cssClass) {
+            this.componentParams.cssClass = 'list-group list-group-flush p-2';
         }
-        if (!this.componentParams.listItemCss) {
-            this.componentParams.listItemCss = 'list-group-item';
+        if (!this.componentParams.listItemCssClass) {
+            this.componentParams.listItemCssClass = 'list-group-item';
         }
     };
     ListCompositeProxy.prototype.renderHtml = function () {

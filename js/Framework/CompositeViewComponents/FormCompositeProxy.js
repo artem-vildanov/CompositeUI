@@ -22,8 +22,8 @@ var FormCompositeProxy = /** @class */ (function (_super) {
     }
     FormCompositeProxy.prototype.formValidation = function () {
         this.validateComponentParams();
-        if (this.componentParams.css === '') {
-            this.componentParams.css = 'card d-flex flex-column justify-content-center align-items-center';
+        if (this.componentParams.cssClass === '') {
+            this.componentParams.cssClass = 'card d-flex flex-column justify-content-center align-items-center';
         }
     };
     FormCompositeProxy.prototype.renderHtml = function () {

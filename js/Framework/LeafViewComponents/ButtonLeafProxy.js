@@ -27,8 +27,8 @@ var ButtonLeafProxy = /** @class */ (function (_super) {
     };
     ButtonLeafProxy.prototype.buttonValidation = function () {
         this.validateComponentParams();
-        if (this.componentParams.css === '') {
-            this.componentParams.css = 'btn btn-dark';
+        if (this.componentParams.cssClass === '') {
+            this.componentParams.cssClass = 'btn btn-dark';
         }
     };
     return ButtonLeafProxy;

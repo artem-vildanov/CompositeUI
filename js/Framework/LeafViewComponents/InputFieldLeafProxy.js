@@ -22,8 +22,8 @@ var InputFieldLeafProxy = /** @class */ (function (_super) {
     }
     InputFieldLeafProxy.prototype.inputFieldValidation = function () {
         this.validateComponentParams();
-        if (this.componentParams.css === '') {
-            this.componentParams.css = 'form-control m-1';
+        if (this.componentParams.cssClass === '') {
+            this.componentParams.cssClass = 'form-control m-1';
         }
     };
     InputFieldLeafProxy.prototype.renderHtml = function () {

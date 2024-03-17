@@ -13,4 +13,4 @@ var CompositeComponentFactory = /** @class */ (function () {
     return CompositeComponentFactory;
 }());
 export { CompositeComponentFactory };
-//# sourceMappingURL=CompositeComponentFactory.js.map
+//# sourceMappingURL=CompositeComponentFactoryImp.js.map

@@ -11,8 +11,8 @@ var ComponentParams = /** @class */ (function () {
         this.padding = '';
         this.margin = '';
         this.text = '';
-        this.css = '';
-        this.listItemCss = '';
+        this.cssClass = '';
+        this.listItemCssClass = '';
         this.childrenComponents = new Array();
     }
     ComponentParams.prototype.getStyles = function () {

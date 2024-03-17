@@ -63,10 +63,10 @@ var ComponentBuilder = /** @class */ (function () {
         this.componentParams.text = text;
         return this;
     };
-    ComponentBuilder.prototype.setCss = function (css, listItemCss) {
+    ComponentBuilder.prototype.setCssClass = function (css, listItemCss) {
         if (listItemCss === void 0) { listItemCss = ''; }
-        this.componentParams.css = css;
-        this.componentParams.listItemCss = listItemCss;
+        this.componentParams.cssClass = css;
+        this.componentParams.listItemCssClass = listItemCss;
         return this;
     };
     ComponentBuilder.prototype.addChildrenComponents = function (childrenComponents) {

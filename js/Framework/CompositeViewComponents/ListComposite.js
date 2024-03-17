@@ -24,9 +24,9 @@ var ListComposite = /** @class */ (function (_super) {
     ListComposite.prototype.makeCompositeHtml = function () {
         var _this = this;
         var childrenComponentsHtmlGroup = this.makeChildrenComponentsHtml();
-        var listHtml = "<div><ul class=\"".concat(this.componentParams.css, "\">");
+        var listHtml = "<div><ul class=\"".concat(this.componentParams.cssClass, "\">");
         childrenComponentsHtmlGroup.forEach(function (childHtml) {
-            var listItemHtml = "<li class=\"".concat(_this.componentParams.listItemCss, "\">").concat(childHtml, "</li>");
+            var listItemHtml = "<li class=\"".concat(_this.componentParams.listItemCssClass, "\">").concat(childHtml, "</li>");
             listHtml += listItemHtml;
         });
         listHtml += '</ul></div>';

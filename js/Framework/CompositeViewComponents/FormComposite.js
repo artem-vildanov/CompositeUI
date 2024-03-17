@@ -30,7 +30,7 @@ var FormComposite = /** @class */ (function (_super) {
         return formHtmlDeclaration + formHtmlBody + formHtmlCloseBracket;
     };
     FormComposite.prototype.makeFormHtmlDeclaration = function () {
-        return "<div class=\"".concat(this.componentParams.css, "\" style=\"").concat(this.componentParams.getStyles(), "\">");
+        return "<div class=\"".concat(this.componentParams.cssClass, "\" style=\"").concat(this.componentParams.getStyles(), "\">");
     };
     FormComposite.prototype.makeFormHtmlBody = function (childrenHtml) {
         var formText = '';

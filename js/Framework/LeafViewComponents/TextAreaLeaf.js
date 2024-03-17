@@ -22,7 +22,7 @@ var TextAreaLeaf = /** @class */ (function (_super) {
         return _this;
     }
     TextAreaLeaf.prototype.makeLeafHtml = function () {
-        return "<div class=\"".concat(this.componentParams.css, "\" style=\"").concat(this.componentParams.getStyles(), "\">").concat(this.componentParams.text, "</div>");
+        return "<div class=\"".concat(this.componentParams.cssClass, "\" style=\"").concat(this.componentParams.getStyles(), "\">").concat(this.componentParams.text, "</div>");
     };
     return TextAreaLeaf;
 }(LeafComponent));

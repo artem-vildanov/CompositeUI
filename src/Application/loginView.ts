@@ -1,4 +1,4 @@
-import {ComponentBuilder} from "../Framework/AbstractViewComponents/ComponentBuilder.js";
+import {ComponentBuilder} from "../Framework/ComponentBuilders/ComponentBuilder.js";
 
 const inputEmail = ComponentBuilder
     .makeComponent()
@@ -10,26 +10,35 @@ const inputEmail = ComponentBuilder
 const inputPassword = ComponentBuilder
     .makeComponent()
     .setText('Password')
+    .setType('password')
     .buildLeafComponent()
     .buildInputField()
 
 const textArea = ComponentBuilder
     .makeComponent()
-    .setText('Enter credentials')
+    .setText('Login')
     .setFontWeight('bold')
     .setFontSize('20px')
     .buildLeafComponent()
     .buildTextArea()
 
+const submitButton = ComponentBuilder
+    .makeComponent()
+    .setText('Submit')
+    .setMargin('10px')
+    .buildLeafComponent()
+    .buildButton()
+
 export const loginForm = ComponentBuilder
     .makeComponent()
     .setWidth('50%')
-    .setMargin('10px')
+    .setMargin('20px')
     .setPadding('20px')
     .addChildrenComponents([
         textArea,
         inputEmail,
-        inputPassword
+        inputPassword,
+        submitButton
     ])
     .buildCompositeComponent()
     .buildForm()
