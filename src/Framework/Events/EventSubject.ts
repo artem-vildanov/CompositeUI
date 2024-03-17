@@ -1,10 +1,13 @@
-export interface EventProducer {
-    eventListeners: Array<{
-        eventListener: EventListener,
-        event: () => void,
-    }>;
+import { Collection } from "../Collections/Collection";
+import { EventsCollection } from "../Collections/EventsCollection";
+import { Event } from "./Event";
 
-    attachClickListener(listener: EventListener, event: () => any): void;
+export interface EventProducer {
+    clickListeners: EventsCollection
+    mouseOnListeners: EventsCollection
+    mouseOverListeners: EventsCollection
+
+    attachClickListener(event: Event): void;
     detachClickListener(listener: EventListener): void;
 
     clickNotify(): void;

@@ -1,6 +1,6 @@
 interface EventListener {
-    mouseOverHappened()
-    mouseOutHappened()
-    clickHappened()
+    mouseOverHappened(): void
+    mouseOutHappened(): void
+    clickHappened(): void
 }
 
