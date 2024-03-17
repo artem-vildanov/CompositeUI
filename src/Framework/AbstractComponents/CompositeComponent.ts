@@ -15,7 +15,7 @@ export abstract class CompositeComponent extends Component
     protected makeChildrenComponentsHtml(): Array<string> {
         let childrenComponentsHtmlGroup: Array<string> = new Array<string>();
         this.childrenComponents.forEach((ComponentImp: Component) => {
-            childrenComponentsHtmlGroup.push(ComponentImp.renderHtml())
+            childrenComponentsHtmlGroup.push(ComponentImp.getHtml())
         })
         return childrenComponentsHtmlGroup;
     }

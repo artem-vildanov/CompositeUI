@@ -3,7 +3,7 @@ var Component = /** @class */ (function () {
         this.html = null;
         this.componentParams = componentParams;
     }
-    Component.prototype.renderHtml = function () {
+    Component.prototype.getHtml = function () {
         if (!this.html) {
             throw Error("failed to render html");
         }

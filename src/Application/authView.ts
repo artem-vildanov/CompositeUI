@@ -32,4 +32,4 @@ export const authForm = ComponentBuilder
     .buildCompositeComponent()
     .buildForm()
 
-export const authHtmlView = authForm.renderHtml()
+export const authHtmlView = authForm.getHtml()

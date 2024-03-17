@@ -60,5 +60,5 @@ export var signUpForm = ComponentBuilder
 ])
     .buildCompositeComponent()
     .buildForm();
-export var signUpViewHtml = signUpForm.renderHtml();
+export var signUpViewHtml = signUpForm.getHtml();
 //# sourceMappingURL=signupView.js.map

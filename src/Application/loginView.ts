@@ -43,4 +43,4 @@ export const loginForm = ComponentBuilder
     .buildCompositeComponent()
     .buildForm()
 
-export const loginViewHtml = loginForm.renderHtml()
+export const loginViewHtml = loginForm.getHtml()

@@ -26,9 +26,9 @@ var FormCompositeProxy = /** @class */ (function (_super) {
             this.componentParams.cssClass = 'card d-flex flex-column justify-content-center align-items-center';
         }
     };
-    FormCompositeProxy.prototype.renderHtml = function () {
+    FormCompositeProxy.prototype.getHtml = function () {
         this.formValidation();
-        return new FormComposite(this.componentParams).renderHtml();
+        return new FormComposite(this.componentParams).getHtml();
     };
     return FormCompositeProxy;
 }(ComponentProxy));

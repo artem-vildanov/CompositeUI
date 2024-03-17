@@ -22,8 +22,8 @@ var ButtonLeafProxy = /** @class */ (function (_super) {
         _this.buttonValidation();
         return _this;
     }
-    ButtonLeafProxy.prototype.renderHtml = function () {
-        return new ButtonLeaf(this.componentParams).renderHtml();
+    ButtonLeafProxy.prototype.getHtml = function () {
+        return new ButtonLeaf(this.componentParams).getHtml();
     };
     ButtonLeafProxy.prototype.buttonValidation = function () {
         this.validateComponentParams();

@@ -26,9 +26,9 @@ var InputFieldLeafProxy = /** @class */ (function (_super) {
             this.componentParams.cssClass = 'form-control m-1';
         }
     };
-    InputFieldLeafProxy.prototype.renderHtml = function () {
+    InputFieldLeafProxy.prototype.getHtml = function () {
         this.inputFieldValidation();
-        return new InputFieldLeaf(this.componentParams).renderHtml();
+        return new InputFieldLeaf(this.componentParams).getHtml();
     };
     return InputFieldLeafProxy;
 }(ComponentProxy));

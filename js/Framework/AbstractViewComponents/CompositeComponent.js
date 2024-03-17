@@ -25,7 +25,7 @@ var CompositeComponent = /** @class */ (function (_super) {
     CompositeComponent.prototype.makeChildrenComponentsHtml = function () {
         var childrenComponentsHtmlGroup = new Array();
         this.childrenComponents.forEach(function (ComponentImp) {
-            childrenComponentsHtmlGroup.push(ComponentImp.renderHtml());
+            childrenComponentsHtmlGroup.push(ComponentImp.getHtml());
         });
         return childrenComponentsHtmlGroup;
     };

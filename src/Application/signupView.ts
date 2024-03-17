@@ -70,4 +70,4 @@ export const signUpForm = ComponentBuilder
     .buildCompositeComponent()
     .buildForm()
 
-export const signUpViewHtml = signUpForm.renderHtml()
+export const signUpViewHtml = signUpForm.getHtml()

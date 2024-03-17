@@ -29,5 +29,5 @@ export var authForm = ComponentBuilder
 ])
     .buildCompositeComponent()
     .buildForm();
-export var authHtmlView = authForm.renderHtml();
+export var authHtmlView = authForm.getHtml();
 //# sourceMappingURL=authView.js.map

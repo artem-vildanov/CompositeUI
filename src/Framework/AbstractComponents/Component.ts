@@ -2,18 +2,15 @@ import {ComponentParams} from "../ComponentBuilders/ComponentParams.js";
 
 
 export abstract class Component {
-    protected html: string | null = null;
-    protected componentParams: ComponentParams;
+    protected html: string = '';
     protected abstract defaultCssClass: string;
-    protected constructor(componentParams: ComponentParams) {
-        this.componentParams = componentParams
+    protected constructor(protected componentParams: ComponentParams) {}
+
+    getComponentParams(): ComponentParams {
+        return this.componentParams
     }
 
-    renderHtml(): string {
-        if (!this.html) {
-            throw Error("failed to render html")
-        }
-
+    getHtml(): string {
         return this.html;
     }
 }

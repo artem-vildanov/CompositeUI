@@ -29,9 +29,9 @@ var ListCompositeProxy = /** @class */ (function (_super) {
             this.componentParams.listItemCssClass = 'list-group-item';
         }
     };
-    ListCompositeProxy.prototype.renderHtml = function () {
+    ListCompositeProxy.prototype.getHtml = function () {
         this.listValidation();
-        return new ListComposite(this.componentParams).renderHtml();
+        return new ListComposite(this.componentParams).getHtml();
     };
     return ListCompositeProxy;
 }(ComponentProxy));

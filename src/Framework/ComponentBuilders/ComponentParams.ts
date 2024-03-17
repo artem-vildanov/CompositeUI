@@ -17,6 +17,9 @@ export class ComponentParams {
     listItemCssClass: string = ''; // only for ListComposite
     childrenComponents: Array<Component> = new Array<Component>(); // only for CompositeComponents
 
+    // observers
+    eventObservers
+
     getStyles(): string {
         return this.color
             + this.backgroundColor

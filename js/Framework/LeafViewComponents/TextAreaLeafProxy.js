@@ -26,9 +26,9 @@ var TextAreaLeafProxy = /** @class */ (function (_super) {
             this.componentParams.cssClass = 'm-1';
         }
     };
-    TextAreaLeafProxy.prototype.renderHtml = function () {
+    TextAreaLeafProxy.prototype.getHtml = function () {
         this.textAreaValidation();
-        return new TextAreaLeaf(this.componentParams).renderHtml();
+        return new TextAreaLeaf(this.componentParams).getHtml();
     };
     return TextAreaLeafProxy;
 }(ComponentProxy));

@@ -37,5 +37,5 @@ export var loginForm = ComponentBuilder
 ])
     .buildCompositeComponent()
     .buildForm();
-export var loginViewHtml = loginForm.renderHtml();
+export var loginViewHtml = loginForm.getHtml();
 //# sourceMappingURL=loginView.js.map
