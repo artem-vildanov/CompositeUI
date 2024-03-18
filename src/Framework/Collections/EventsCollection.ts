@@ -1,6 +1,6 @@
-import { Event } from "../Events/Event";
-import { Collection } from "./Collection";
-import { Iterator } from "./Iterator";
+import { Event } from "../Events/Event.js";
+import { Collection } from "./Collection.js";
+import { Iterator } from "./Iterator.js";
 
 export class EventsCollection extends Collection<Event> {
 

@@ -1,6 +1,8 @@
+import {EventListener} from "./EventListener";
+
 export class Event {
     constructor(
         public eventListener: EventListener,
-        public event: () => void
+        public action: () => void
     ) {}
 }

@@ -1,5 +1,3 @@
-import { Collection } from "./Collection"
-
 export abstract class Iterator<T> {
     protected constructor(protected collection: Array<T>) {}
 

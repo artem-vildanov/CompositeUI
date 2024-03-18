@@ -13,7 +13,12 @@
     </div>
 </body>
 <script type="module">
-    import { renderAuthorizationView } from "./js/App.js";
-    renderAuthorizationView();
+    import {authForm} from "./js/Application/authView.js";
+    authForm.attachClickListener(() => {
+        console.log('message')
+        const container = document.getElementById('entryPoint')
+        container.innerHTML = '<h1>hello world</h1>'
+    })
+    //authForm.clickNotify()
 </script>
 </html>
