@@ -1,4 +1,10 @@
 import {Component} from "../AbstractComponents/Component.js";
+import { ComponentsCollection } from "../Collections/ComponentsCollection.js";
+import { Collection } from "../Collections/Collection.js";
+import { EventsCollection } from "../Collections/EventsCollection.js";
+import { ListenersCollection } from "../Collections/ListenersCollection.js";
+import { Event } from "../Events/Event.js";
+import { EventListener } from "../Events/EventListener.js";
 
 export class ComponentParams {
     color: string = '';
@@ -15,7 +21,11 @@ export class ComponentParams {
     type: string = ''; // only for InputFieldLeaf
     cssClass: string = '';
     listItemCssClass: string = ''; // only for ListComposite
-    childrenComponents: Array<Component> = new Array<Component>(); // only for CompositeComponents
+    childrenComponents: ComponentsCollection = new ComponentsCollection(new Array<Component>) // only for CompositeComponents
+    clickListeners: Collection<Event> = new EventsCollection(new Array<Event>());
+    mouseOutListeners: Collection<Event>  = new EventsCollection(new Array<Event>());
+    mouseOverListeners: Collection<Event> = new EventsCollection(new Array<Event>());
+    updateListeners: Collection<EventListener> = new ListenersCollection(new Array<EventListener>())
 
     getStyles(): string {
         return this.color

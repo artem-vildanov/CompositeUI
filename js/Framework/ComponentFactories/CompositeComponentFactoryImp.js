@@ -5,7 +5,13 @@ var CompositeComponentFactoryImp = /** @class */ (function () {
         this.componentParams = componentParams;
     }
     CompositeComponentFactoryImp.prototype.buildForm = function () {
-        return new FormComposite(this.componentParams);
+        var form = new FormComposite(this.componentParams);
+        var componentsIterator = form.childrenComponents.getIterator();
+        while (componentsIterator.hasNext()) {
+            var component = componentsIterator.next();
+            component.attachUpdateListener(form);
+        }
+        return form;
     };
     CompositeComponentFactoryImp.prototype.buildList = function () {
         return new ListComposite(this.componentParams);

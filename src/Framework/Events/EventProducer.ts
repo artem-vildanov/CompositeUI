@@ -1,18 +1,12 @@
 
-import { EventsCollection } from "../Collections/EventsCollection.js";
-import {EventListener} from "./EventListener";
-import {Collection} from "../Collections/Collection";
-import {Event} from "./Event";
+import {EventListener} from "./EventListener.js";
 
 
 export interface EventProducer {
-    clickListeners: Collection<Event>
-    mouseOverListeners: Collection<Event>
-    mouseOutListeners: Collection<Event>
 
-    attachClickListener(eventListener: EventListener = this, actionCallback: () => void): void;
-    attachMouseOverListener(eventListener: EventListener = this, actionCallback: () => void): void;
-    attachMouseOutListener(eventListener: EventListener = this, actionCallback: () => void): void;
+    attachClickListener(eventListener: EventListener, actionCallback: () => void): void;
+    attachMouseOverListener(eventListener: EventListener, actionCallback: () => void): void;
+    attachMouseOutListener(eventListener: EventListener, actionCallback: () => void): void;
     attachUpdateListener(eventListener: EventListener): void;
 
     // detachMouseOverListener(eventListener: EventListener): void;

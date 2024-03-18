@@ -19,6 +19,28 @@ var LeafComponent = /** @class */ (function (_super) {
     function LeafComponent(componentParams) {
         return _super.call(this, componentParams) || this;
     }
+    // EventListener implementation
+    LeafComponent.prototype.clickHappened = function (actionCallback) {
+        actionCallback.bind(this);
+        actionCallback();
+        this.html = this.makeLeafHtml();
+        this.updateNotify();
+    };
+    LeafComponent.prototype.mouseOutHappened = function (actionCallback) {
+        actionCallback.bind(this);
+        actionCallback();
+        this.html = this.makeLeafHtml();
+        this.updateNotify();
+    };
+    LeafComponent.prototype.mouseOverHappened = function (actionCallback) {
+        actionCallback.bind(this);
+        actionCallback();
+        this.html = this.makeLeafHtml();
+        this.updateNotify();
+    };
+    LeafComponent.prototype.updateHappened = function () {
+        this.html = this.makeLeafHtml();
+    };
     return LeafComponent;
 }(Component));
 export { LeafComponent };

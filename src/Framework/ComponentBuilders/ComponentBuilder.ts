@@ -93,7 +93,8 @@ export class ComponentBuilder {
 
      addChildrenComponents(childrenComponents: Array<Component>): ComponentBuilder {
           childrenComponents.forEach((childComponent: Component) => {
-             this.componentParams.childrenComponents.push(childComponent);
+             this.componentParams.childrenComponents.add(childComponent)
+             // this.componentParams.childrenComponents.push(...childComponent.getComponentParams().childrenComponents)
           })
 
           return this

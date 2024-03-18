@@ -26,19 +26,6 @@ var ButtonLeaf = /** @class */ (function (_super) {
         var buttonCssClass = this.componentParams.cssClass === '' ? this.defaultCssClass : this.componentParams.cssClass;
         return "<button type=\"".concat(this.componentParams.type, "\" class=\"").concat(buttonCssClass, "\" style=\"").concat(this.componentParams.getStyles(), "\">").concat(this.componentParams.text, "</button>");
     };
-    // EventListener implementation
-    ButtonLeaf.prototype.clickHappened = function (actionCallback) {
-        actionCallback();
-        this.html = this.makeLeafHtml();
-    };
-    ButtonLeaf.prototype.mouseOutHappened = function (actionCallback) {
-        actionCallback();
-        this.html = this.makeLeafHtml();
-    };
-    ButtonLeaf.prototype.mouseOverHappened = function (actionCallback) {
-        actionCallback();
-        this.html = this.makeLeafHtml();
-    };
     return ButtonLeaf;
 }(LeafComponent));
 export { ButtonLeaf };

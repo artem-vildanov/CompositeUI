@@ -10,6 +10,10 @@ export abstract class Collection<T> {
         this.collection.push(item)
     }
 
+    // addMultiple(items: T[]): void {
+    //     this.collection.push(...items)
+    // }
+
     count(): number {
         return this.collection.length
     }

@@ -11,10 +11,19 @@ export class CompositeComponentFactoryImp implements CompositeComponentFactory{
     ) {}
 
     buildForm(): Component {
-        return new FormComposite(this.componentParams)
+        const form = new FormComposite(this.componentParams)
+
+        const componentsIterator = form.childrenComponents.getIterator()
+        while(componentsIterator.hasNext()) {
+            const component = componentsIterator.next()
+            component.attachUpdateListener(form)
+        }
+
+        return form
     }
 
     buildList(): Component {
         return new ListComposite(this.componentParams)
     }
 }
+

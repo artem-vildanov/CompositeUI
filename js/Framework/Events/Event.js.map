@@ -1,1 +1,1 @@
-{"version":3,"file":"Event.js","sourceRoot":"","sources":["../../../src/Framework/Events/Event.ts"],"names":[],"mappings":"AAAA;IACI,eACW,MAAkB;QAAlB,WAAM,GAAN,MAAM,CAAY;IAC1B,CAAC;IACR,YAAC;AAAD,CAAC,AAJD,IAIC"}
+{"version":3,"file":"Event.js","sourceRoot":"","sources":["../../../src/Framework/Events/Event.ts"],"names":[],"mappings":"AAEA;IACI,eACW,aAA4B,EAC5B,MAAkB;QADlB,kBAAa,GAAb,aAAa,CAAe;QAC5B,WAAM,GAAN,MAAM,CAAY;IAC1B,CAAC;IACR,YAAC;AAAD,CAAC,AALD,IAKC"}

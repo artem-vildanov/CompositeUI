@@ -14,11 +14,12 @@
 </body>
 <script type="module">
     import {authForm} from "./js/Application/authView.js";
-    authForm.attachClickListener(() => {
-        console.log('message')
-        const container = document.getElementById('entryPoint')
-        container.innerHTML = '<h1>hello world</h1>'
-    })
-    //authForm.clickNotify()
+    
+    const componentsCollection = authForm.childrenComponents.getCompleteComponentsCollection()
+    const componentsIterator = componentsCollection.getIterator()
+    while (componentsIterator.hasNext()) {
+        console.log(componentsIterator.next())
+    }
+    
 </script>
 </html>

@@ -76,7 +76,8 @@ var ComponentBuilder = /** @class */ (function () {
     ComponentBuilder.prototype.addChildrenComponents = function (childrenComponents) {
         var _this = this;
         childrenComponents.forEach(function (childComponent) {
-            _this.componentParams.childrenComponents.push(childComponent);
+            _this.componentParams.childrenComponents.add(childComponent);
+            // this.componentParams.childrenComponents.push(...childComponent.getComponentParams().childrenComponents)
         });
         return this;
     };

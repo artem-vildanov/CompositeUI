@@ -1,5 +1,6 @@
 var Event = /** @class */ (function () {
-    function Event(action) {
+    function Event(eventListener, action) {
+        this.eventListener = eventListener;
         this.action = action;
     }
     return Event;

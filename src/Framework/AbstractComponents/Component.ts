@@ -1,25 +1,21 @@
 import {ComponentParams} from "../ComponentBuilders/ComponentParams.js";
 import {EventProducer} from "../Events/EventProducer.js";
-import {EventsCollection} from "../Collections/EventsCollection.js";
 import {Event} from "../Events/Event.js";
-import {EventListenerImp} from "../Events/EventListenerImp.js";
 import {EventListener} from "../Events/EventListener.js";
-import {ListenersCollection} from "../Collections/ListenersCollection";
-import {Collection} from "../Collections/Collection";
 
 
 export abstract class Component implements EventProducer, EventListener {
+    readonly componentId: string;
     protected html: string = '';
     protected abstract defaultCssClass: string;
 
-    // EventProducer implementation
-    clickListeners: Collection<Event> = new EventsCollection(new Array<Event>());
-    mouseOutListeners: Collection<Event>  = new EventsCollection(new Array<Event>());
-    mouseOverListeners: Collection<Event> = new EventsCollection(new Array<Event>());
-    updateListeners: Collection<EventListener> = new ListenersCollection(new Array<EventListener>())
-    // EventProducer implementation
+    protected constructor(protected componentParams: ComponentParams) {
+        this.componentId = this.generateComponentId()
+    }
 
-    protected constructor(protected componentParams: ComponentParams) {}
+    private generateComponentId(): string {
+        return Math.random().toString(36).substring(1, 6) + Math.random().toString().substring(3);
+    }
 
     getComponentParams(): ComponentParams {
         return this.componentParams
@@ -32,21 +28,21 @@ export abstract class Component implements EventProducer, EventListener {
     // EventProducer implementation
     attachClickListener(eventListener: EventListener, actionCallback: () => void): void {
         const event = new Event(eventListener, actionCallback)
-        this.clickListeners.add(event)
+        this.componentParams.clickListeners.add(event)
     }
 
     attachMouseOutListener(eventListener: EventListener, actionCallback: () => void): void {
         const event = new Event(eventListener, actionCallback)
-        this.mouseOutListeners.add(event)
+        this.componentParams.mouseOutListeners.add(event)
     }
 
     attachMouseOverListener(eventListener: EventListener, actionCallback: () => void): void {
         const event = new Event(eventListener, actionCallback)
-        this.mouseOverListeners.add(event)
+        this.componentParams.mouseOverListeners.add(event)
     }
 
     attachUpdateListener(eventListener: EventListener) {
-        this.updateListeners.add(eventListener)
+        this.componentParams.updateListeners.add(eventListener)
     }
 
     // detachClickListener(listener: EventListener): void {
@@ -59,7 +55,7 @@ export abstract class Component implements EventProducer, EventListener {
     // }
 
     mouseOutNotify(): void {
-        const iterator = this.mouseOutListeners.getIterator()
+        const iterator = this.componentParams.mouseOutListeners.getIterator()
         while (iterator.hasNext()) {
             const eventAction = iterator.next().action
             const eventListener = iterator.next().eventListener
@@ -68,7 +64,7 @@ export abstract class Component implements EventProducer, EventListener {
     }
 
     clickNotify(): void {
-        const iterator = this.clickListeners.getIterator()
+        const iterator = this.componentParams.clickListeners.getIterator()
         while (iterator.hasNext()) {
             const eventAction = iterator.next().action
             const eventListener = iterator.next().eventListener
@@ -77,7 +73,7 @@ export abstract class Component implements EventProducer, EventListener {
     }
 
     mouseOverNotify(): void {
-        const iterator = this.mouseOverListeners.getIterator()
+        const iterator = this.componentParams.mouseOverListeners.getIterator()
         while (iterator.hasNext()) {
             const eventAction = iterator.next().action
             const eventListener = iterator.next().eventListener
@@ -86,15 +82,15 @@ export abstract class Component implements EventProducer, EventListener {
     }
 
     updateNotify(): void {
-        const iterator = this.updateListeners.getIterator()
+        const iterator = this.componentParams.updateListeners.getIterator()
         while (iterator.hasNext()) {
             const eventListener = iterator.next()
             eventListener.updateHappened()
         }
     }
 
-    protected abstract updateHappened(): void
-    protected abstract clickHappened(actionCallback: () => void): void
-    protected abstract mouseOutHappened(actionCallback: () => void): void
-    protected abstract mouseOverHappened(actionCallback: () => void): void
+    abstract updateHappened(): void
+    abstract clickHappened(actionCallback: () => void): void
+    abstract mouseOutHappened(actionCallback: () => void): void
+    abstract mouseOverHappened(actionCallback: () => void): void
 }

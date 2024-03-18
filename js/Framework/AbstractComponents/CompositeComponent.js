@@ -23,11 +23,35 @@ var CompositeComponent = /** @class */ (function (_super) {
     }
     // Массив html кодов дочерних компонентов
     CompositeComponent.prototype.makeChildrenComponentsHtml = function () {
-        var childrenComponentsHtmlGroup = new Array();
-        this.childrenComponents.forEach(function (ComponentImp) {
-            childrenComponentsHtmlGroup.push(ComponentImp.getHtml());
-        });
-        return childrenComponentsHtmlGroup;
+        var childrenHtml = new Array();
+        var childrenIterator = this.childrenComponents.getIterator();
+        while (childrenIterator.hasNext()) {
+            var childComponent = childrenIterator.next();
+            var componentHtml = childComponent.getHtml();
+            childrenHtml.push(componentHtml);
+        }
+        return childrenHtml;
+    };
+    CompositeComponent.prototype.clickHappened = function (actionCallback) {
+        actionCallback.bind(this);
+        actionCallback();
+        this.html = this.makeCompositeHtml();
+        this.updateNotify();
+    };
+    CompositeComponent.prototype.mouseOutHappened = function (actionCallback) {
+        actionCallback.bind(this);
+        actionCallback();
+        this.html = this.makeCompositeHtml();
+        this.updateNotify();
+    };
+    CompositeComponent.prototype.mouseOverHappened = function (actionCallback) {
+        actionCallback.bind(this);
+        actionCallback();
+        this.html = this.makeCompositeHtml();
+        this.updateNotify();
+    };
+    CompositeComponent.prototype.updateHappened = function () {
+        this.html = this.makeCompositeHtml();
     };
     return CompositeComponent;
 }(Component));

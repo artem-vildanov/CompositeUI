@@ -1,17 +1,13 @@
-import { EventsCollection } from "../Collections/EventsCollection.js";
 import { Event } from "../Events/Event.js";
-import { EventListenerImp } from "../Events/EventListenerImp.js";
 var Component = /** @class */ (function () {
-    // EventProducer implementation
     function Component(componentParams) {
         this.componentParams = componentParams;
         this.html = '';
-        // EventProducer implementation
-        this.clickListeners = new EventsCollection(new Array());
-        this.mouseOutListeners = new EventsCollection(new Array());
-        this.mouseOverListeners = new EventsCollection(new Array());
-        this.eventListener = EventListenerImp.getInstance();
+        this.componentId = this.generateComponentId();
     }
+    Component.prototype.generateComponentId = function () {
+        return Math.random().toString(36).substring(1, 6) + Math.random().toString().substring(3);
+    };
     Component.prototype.getComponentParams = function () {
         return this.componentParams;
     };
@@ -19,17 +15,20 @@ var Component = /** @class */ (function () {
         return this.html;
     };
     // EventProducer implementation
-    Component.prototype.attachClickListener = function (actionCallback) {
-        var event = new Event(actionCallback);
-        this.clickListeners.add(event);
+    Component.prototype.attachClickListener = function (eventListener, actionCallback) {
+        var event = new Event(eventListener, actionCallback);
+        this.componentParams.clickListeners.add(event);
     };
-    Component.prototype.attachMouseOutListener = function (actionCallback) {
-        var event = new Event(actionCallback);
-        this.mouseOutListeners.add(event);
+    Component.prototype.attachMouseOutListener = function (eventListener, actionCallback) {
+        var event = new Event(eventListener, actionCallback);
+        this.componentParams.mouseOutListeners.add(event);
     };
-    Component.prototype.attachMouseOverListener = function (actionCallback) {
-        var event = new Event(actionCallback);
-        this.mouseOverListeners.add(event);
+    Component.prototype.attachMouseOverListener = function (eventListener, actionCallback) {
+        var event = new Event(eventListener, actionCallback);
+        this.componentParams.mouseOverListeners.add(event);
+    };
+    Component.prototype.attachUpdateListener = function (eventListener) {
+        this.componentParams.updateListeners.add(eventListener);
     };
     // detachClickListener(listener: EventListener): void {
     // }
@@ -40,24 +39,34 @@ var Component = /** @class */ (function () {
     // detachMouseOverListener(eventListener: EventListener): void {
     // }
     Component.prototype.mouseOutNotify = function () {
-        var iterator = this.mouseOutListeners.getIterator();
+        var iterator = this.componentParams.mouseOutListeners.getIterator();
         while (iterator.hasNext()) {
             var eventAction = iterator.next().action;
-            this.eventListener.mouseOutHappened(eventAction);
+            var eventListener = iterator.next().eventListener;
+            eventListener.mouseOutHappened(eventAction);
         }
     };
     Component.prototype.clickNotify = function () {
-        var iterator = this.clickListeners.getIterator();
+        var iterator = this.componentParams.clickListeners.getIterator();
         while (iterator.hasNext()) {
             var eventAction = iterator.next().action;
-            this.eventListener.clickHappened(eventAction);
+            var eventListener = iterator.next().eventListener;
+            eventListener.clickHappened(eventAction);
         }
     };
     Component.prototype.mouseOverNotify = function () {
-        var iterator = this.mouseOverListeners.getIterator();
+        var iterator = this.componentParams.mouseOverListeners.getIterator();
         while (iterator.hasNext()) {
             var eventAction = iterator.next().action;
-            this.eventListener.mouseOverHappened(eventAction);
+            var eventListener = iterator.next().eventListener;
+            eventListener.mouseOverHappened(eventAction);
+        }
+    };
+    Component.prototype.updateNotify = function () {
+        var iterator = this.componentParams.updateListeners.getIterator();
+        while (iterator.hasNext()) {
+            var eventListener = iterator.next();
+            eventListener.updateHappened();
         }
     };
     return Component;

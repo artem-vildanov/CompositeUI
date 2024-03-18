@@ -52,7 +52,7 @@ export class ParamsValidator {
     }
 
     private checkChildrenDontPresents(): void {
-        if (this.componentParams.childrenComponents.length !== 0) {
+        if (this.componentParams.childrenComponents.count() !== 0) {
             throw Error('LeafComponent unable to have children components')
         }
     }

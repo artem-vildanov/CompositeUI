@@ -1,3 +1,6 @@
+import { ComponentsCollection } from "../Collections/ComponentsCollection.js";
+import { EventsCollection } from "../Collections/EventsCollection.js";
+import { ListenersCollection } from "../Collections/ListenersCollection.js";
 var ComponentParams = /** @class */ (function () {
     function ComponentParams() {
         this.color = '';
@@ -14,7 +17,11 @@ var ComponentParams = /** @class */ (function () {
         this.type = ''; // only for InputFieldLeaf
         this.cssClass = '';
         this.listItemCssClass = ''; // only for ListComposite
-        this.childrenComponents = new Array(); // only for CompositeComponents
+        this.childrenComponents = new ComponentsCollection(new Array); // only for CompositeComponents
+        this.clickListeners = new EventsCollection(new Array());
+        this.mouseOutListeners = new EventsCollection(new Array());
+        this.mouseOverListeners = new EventsCollection(new Array());
+        this.updateListeners = new ListenersCollection(new Array());
     }
     ComponentParams.prototype.getStyles = function () {
         return this.color

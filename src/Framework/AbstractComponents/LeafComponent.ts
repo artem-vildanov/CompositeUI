@@ -10,23 +10,28 @@ export abstract class LeafComponent extends Component{
 
     // EventListener implementation
 
-    protected clickHappened(actionCallback: () => void): void {
+    clickHappened(actionCallback: () => void): void {
+        actionCallback.bind(this)
         actionCallback()
         this.html = this.makeLeafHtml();
         this.updateNotify()
     }
 
-    protected mouseOutHappened(actionCallback: () => void): void {
+    mouseOutHappened(actionCallback: () => void): void {
+        actionCallback.bind(this)
         actionCallback()
         this.html = this.makeLeafHtml();
+        this.updateNotify()
     }
 
-    protected mouseOverHappened(actionCallback: () => void): void {
+    mouseOverHappened(actionCallback: () => void): void {
+        actionCallback.bind(this)
         actionCallback()
         this.html = this.makeLeafHtml();
+        this.updateNotify()
     }
 
-    protected updateHappened(): void {
+    updateHappened(): void {
         this.html = this.makeLeafHtml()
     }
 }

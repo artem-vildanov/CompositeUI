@@ -1,7 +1,6 @@
-import {Collection} from "./Collection";
-import {EventListener} from "../Events/EventListener";
-import {Iterator} from "./Iterator";
-import {Event} from "../Events/Event";
+import {Collection} from "./Collection.js";
+import {EventListener} from "../Events/EventListener.js";
+import {Iterator} from "./Iterator.js";
 
 export class ListenersCollection extends Collection<EventListener> {
     constructor(collection: Array<EventListener>) {

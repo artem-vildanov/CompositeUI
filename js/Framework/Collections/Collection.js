@@ -5,6 +5,9 @@ var Collection = /** @class */ (function () {
     Collection.prototype.add = function (item) {
         this.collection.push(item);
     };
+    // addMultiple(items: T[]): void {
+    //     this.collection.push(...items)
+    // }
     Collection.prototype.count = function () {
         return this.collection.length;
     };
