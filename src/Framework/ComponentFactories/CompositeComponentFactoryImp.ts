@@ -23,7 +23,15 @@ export class CompositeComponentFactoryImp implements CompositeComponentFactory{
     }
 
     buildList(): Component {
-        return new ListComposite(this.componentParams)
+        const list = new ListComposite(this.componentParams)
+
+        const componentsIterator = list.childrenComponents.getIterator()
+        while(componentsIterator.hasNext()) {
+            const component = componentsIterator.next()
+            component.attachUpdateListener(list)
+        }
+
+        return list
     }
 }
 

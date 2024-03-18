@@ -41,24 +41,27 @@ var Component = /** @class */ (function () {
     Component.prototype.mouseOutNotify = function () {
         var iterator = this.componentParams.mouseOutListeners.getIterator();
         while (iterator.hasNext()) {
-            var eventAction = iterator.next().action;
-            var eventListener = iterator.next().eventListener;
+            var event_1 = iterator.next();
+            var eventAction = event_1.action;
+            var eventListener = event_1.eventListener;
             eventListener.mouseOutHappened(eventAction);
         }
     };
     Component.prototype.clickNotify = function () {
         var iterator = this.componentParams.clickListeners.getIterator();
         while (iterator.hasNext()) {
-            var eventAction = iterator.next().action;
-            var eventListener = iterator.next().eventListener;
+            var event_2 = iterator.next();
+            var eventAction = event_2.action;
+            var eventListener = event_2.eventListener;
             eventListener.clickHappened(eventAction);
         }
     };
     Component.prototype.mouseOverNotify = function () {
         var iterator = this.componentParams.mouseOverListeners.getIterator();
         while (iterator.hasNext()) {
-            var eventAction = iterator.next().action;
-            var eventListener = iterator.next().eventListener;
+            var event_3 = iterator.next();
+            var eventAction = event_3.action;
+            var eventListener = event_3.eventListener;
             eventListener.mouseOverHappened(eventAction);
         }
     };

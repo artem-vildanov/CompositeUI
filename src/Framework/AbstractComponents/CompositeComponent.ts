@@ -48,5 +48,6 @@ export abstract class CompositeComponent extends Component
 
     updateHappened(): void {
         this.html = this.makeCompositeHtml()
+        this.updateNotify()
     }
 }

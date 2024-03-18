@@ -14,7 +14,13 @@ var CompositeComponentFactoryImp = /** @class */ (function () {
         return form;
     };
     CompositeComponentFactoryImp.prototype.buildList = function () {
-        return new ListComposite(this.componentParams);
+        var list = new ListComposite(this.componentParams);
+        var componentsIterator = list.childrenComponents.getIterator();
+        while (componentsIterator.hasNext()) {
+            var component = componentsIterator.next();
+            component.attachUpdateListener(list);
+        }
+        return list;
     };
     return CompositeComponentFactoryImp;
 }());

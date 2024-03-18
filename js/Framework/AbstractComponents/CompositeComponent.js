@@ -52,6 +52,7 @@ var CompositeComponent = /** @class */ (function (_super) {
     };
     CompositeComponent.prototype.updateHappened = function () {
         this.html = this.makeCompositeHtml();
+        this.updateNotify();
     };
     return CompositeComponent;
 }(Component));

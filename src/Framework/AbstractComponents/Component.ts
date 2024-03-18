@@ -57,8 +57,9 @@ export abstract class Component implements EventProducer, EventListener {
     mouseOutNotify(): void {
         const iterator = this.componentParams.mouseOutListeners.getIterator()
         while (iterator.hasNext()) {
-            const eventAction = iterator.next().action
-            const eventListener = iterator.next().eventListener
+            const event = iterator.next()
+            const eventAction = event.action
+            const eventListener = event.eventListener
             eventListener.mouseOutHappened(eventAction)
         }
     }
@@ -66,8 +67,9 @@ export abstract class Component implements EventProducer, EventListener {
     clickNotify(): void {
         const iterator = this.componentParams.clickListeners.getIterator()
         while (iterator.hasNext()) {
-            const eventAction = iterator.next().action
-            const eventListener = iterator.next().eventListener
+            const event = iterator.next()
+            const eventAction = event.action
+            const eventListener = event.eventListener
             eventListener.clickHappened(eventAction)
         }
     }
@@ -75,8 +77,9 @@ export abstract class Component implements EventProducer, EventListener {
     mouseOverNotify(): void {
         const iterator = this.componentParams.mouseOverListeners.getIterator()
         while (iterator.hasNext()) {
-            const eventAction = iterator.next().action
-            const eventListener = iterator.next().eventListener
+            const event = iterator.next()
+            const eventAction = event.action
+            const eventListener = event.eventListener
             eventListener.mouseOverHappened(eventAction)
         }
     }
