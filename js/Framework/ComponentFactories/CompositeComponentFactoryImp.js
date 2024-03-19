@@ -6,6 +6,7 @@ var CompositeComponentFactoryImp = /** @class */ (function () {
     }
     CompositeComponentFactoryImp.prototype.buildForm = function () {
         var form = new FormComposite(this.componentParams);
+        // родитель подписывается на изменения в потомках чтобы перерисоваться при изменении в потомках
         var componentsIterator = form.childrenComponents.getIterator();
         while (componentsIterator.hasNext()) {
             var component = componentsIterator.next();
@@ -15,6 +16,7 @@ var CompositeComponentFactoryImp = /** @class */ (function () {
     };
     CompositeComponentFactoryImp.prototype.buildList = function () {
         var list = new ListComposite(this.componentParams);
+        // родитель подписывается на изменения в потомках чтобы перерисоваться при изменении в потомках
         var componentsIterator = list.childrenComponents.getIterator();
         while (componentsIterator.hasNext()) {
             var component = componentsIterator.next();

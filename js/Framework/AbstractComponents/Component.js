@@ -14,18 +14,54 @@ var Component = /** @class */ (function () {
     Component.prototype.getHtml = function () {
         return this.html;
     };
+    Component.prototype.addOnMouseOverHtmlAttribute = function () {
+        if (!this.html) {
+            throw Error('failed to add onmouseout attr');
+        }
+        var htmlArray = this.html.split(" ");
+        var onMouseOverAttr = "onmouseover=\"componentsCollection.find('".concat(this.componentId, "').mouseOverNotify()\"");
+        htmlArray.splice(1, 0, onMouseOverAttr);
+        var updatedHtml = htmlArray.join(" ");
+        this.html = updatedHtml;
+        this.updateNotify();
+    };
+    Component.prototype.addOnMouseOutHtmlAttribute = function () {
+        if (!this.html) {
+            throw Error('failed to add onmouseout attr');
+        }
+        var htmlArray = this.html.split(" ");
+        var onMouseOutAttr = "onmouseout=\"componentsCollection.find('".concat(this.componentId, "').mouseOutNotify()\"");
+        htmlArray.splice(1, 0, onMouseOutAttr);
+        var updatedHtml = htmlArray.join(" ");
+        this.html = updatedHtml;
+        this.updateNotify();
+    };
+    Component.prototype.addOnClickHtmlAttribute = function () {
+        if (!this.html) {
+            throw Error('failed to add onclick attr');
+        }
+        var htmlArray = this.html.split(" ");
+        var onClickAttr = "onclick=\"componentsCollection.find('".concat(this.componentId, "').clickNotify()\"");
+        htmlArray.splice(1, 0, onClickAttr);
+        var updatedHtml = htmlArray.join(" ");
+        this.html = updatedHtml;
+        this.updateNotify();
+    };
     // EventProducer implementation
     Component.prototype.attachClickListener = function (eventListener, actionCallback) {
         var event = new Event(eventListener, actionCallback);
         this.componentParams.clickListeners.add(event);
+        this.addOnClickHtmlAttribute();
     };
     Component.prototype.attachMouseOutListener = function (eventListener, actionCallback) {
         var event = new Event(eventListener, actionCallback);
         this.componentParams.mouseOutListeners.add(event);
+        this.addOnMouseOutHtmlAttribute();
     };
     Component.prototype.attachMouseOverListener = function (eventListener, actionCallback) {
         var event = new Event(eventListener, actionCallback);
         this.componentParams.mouseOverListeners.add(event);
+        this.addOnMouseOverHtmlAttribute();
     };
     Component.prototype.attachUpdateListener = function (eventListener) {
         this.componentParams.updateListeners.add(eventListener);
@@ -65,6 +101,7 @@ var Component = /** @class */ (function () {
             eventListener.mouseOverHappened(eventAction);
         }
     };
+    // оповестить подписчиков об изменении: произошло обновление объекта
     Component.prototype.updateNotify = function () {
         var iterator = this.componentParams.updateListeners.getIterator();
         while (iterator.hasNext()) {

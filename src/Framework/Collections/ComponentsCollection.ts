@@ -34,8 +34,6 @@ export class ComponentsCollection extends Collection<Component> {
             }
         })
 
-        console.log(completeCollection)
-
         return completeCollection
     }
 

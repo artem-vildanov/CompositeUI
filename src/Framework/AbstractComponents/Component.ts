@@ -25,20 +25,68 @@ export abstract class Component implements EventProducer, EventListener {
         return this.html;
     }
 
+    private addOnMouseOverHtmlAttribute(): void { 
+        if (!this.html) {
+            throw Error('failed to add onmouseout attr')
+        }
+
+        const htmlArray = this.html.split(" ")
+        const onMouseOverAttr = `onmouseover="componentsCollection.find('${this.componentId}').mouseOverNotify()"`
+
+        htmlArray.splice(1, 0, onMouseOverAttr)
+        const updatedHtml = htmlArray.join(" ")
+        
+        this.html = updatedHtml
+        this.updateNotify()
+    }
+
+    private addOnMouseOutHtmlAttribute(): void {
+        if (!this.html) {
+            throw Error('failed to add onmouseout attr')
+        }
+
+        const htmlArray = this.html.split(" ")
+        const onMouseOutAttr = `onmouseout="componentsCollection.find('${this.componentId}').mouseOutNotify()"`
+
+        htmlArray.splice(1, 0, onMouseOutAttr)
+        const updatedHtml = htmlArray.join(" ")
+        
+        this.html = updatedHtml
+        this.updateNotify()
+    }
+
+    private addOnClickHtmlAttribute(): void {
+        if (!this.html) {
+            throw Error('failed to add onclick attr')
+        }
+
+        const htmlArray = this.html.split(" ")
+        const onClickAttr = `onclick="componentsCollection.find('${this.componentId}').clickNotify()"`
+
+        htmlArray.splice(1, 0, onClickAttr)
+        const updatedHtml = htmlArray.join(" ")
+        
+        this.html = updatedHtml
+        this.updateNotify()
+    }
+
     // EventProducer implementation
     attachClickListener(eventListener: EventListener, actionCallback: () => void): void {
         const event = new Event(eventListener, actionCallback)
         this.componentParams.clickListeners.add(event)
+        this.addOnClickHtmlAttribute()
     }
 
     attachMouseOutListener(eventListener: EventListener, actionCallback: () => void): void {
         const event = new Event(eventListener, actionCallback)
         this.componentParams.mouseOutListeners.add(event)
+        this.addOnMouseOutHtmlAttribute()
     }
 
     attachMouseOverListener(eventListener: EventListener, actionCallback: () => void): void {
         const event = new Event(eventListener, actionCallback)
         this.componentParams.mouseOverListeners.add(event)
+        this.addOnMouseOverHtmlAttribute()
     }
 
     attachUpdateListener(eventListener: EventListener) {
@@ -84,6 +132,7 @@ export abstract class Component implements EventProducer, EventListener {
         }
     }
 
+    // оповестить подписчиков об изменении: произошло обновление объекта
     updateNotify(): void {
         const iterator = this.componentParams.updateListeners.getIterator()
         while (iterator.hasNext()) {
@@ -92,6 +141,7 @@ export abstract class Component implements EventProducer, EventListener {
         }
     }
 
+    // EventListener methods
     abstract updateHappened(): void
     abstract clickHappened(actionCallback: () => void): void
     abstract mouseOutHappened(actionCallback: () => void): void

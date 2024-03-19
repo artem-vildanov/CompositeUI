@@ -13,6 +13,7 @@ export class CompositeComponentFactoryImp implements CompositeComponentFactory{
     buildForm(): Component {
         const form = new FormComposite(this.componentParams)
 
+        // родитель подписывается на изменения в потомках чтобы перерисоваться при изменении в потомках
         const componentsIterator = form.childrenComponents.getIterator()
         while(componentsIterator.hasNext()) {
             const component = componentsIterator.next()
@@ -25,6 +26,7 @@ export class CompositeComponentFactoryImp implements CompositeComponentFactory{
     buildList(): Component {
         const list = new ListComposite(this.componentParams)
 
+        // родитель подписывается на изменения в потомках чтобы перерисоваться при изменении в потомках
         const componentsIterator = list.childrenComponents.getIterator()
         while(componentsIterator.hasNext()) {
             const component = componentsIterator.next()

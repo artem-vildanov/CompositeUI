@@ -45,12 +45,9 @@ var LoginView = /** @class */ (function () {
             .buildForm();
         this.loginForm.attachUpdateListener(this);
     }
-    LoginView.prototype.clickHappened = function (actionCallback) {
-    };
-    LoginView.prototype.mouseOutHappened = function (actionCallback) {
-    };
-    LoginView.prototype.mouseOverHappened = function (actionCallback) {
-    };
+    LoginView.prototype.clickHappened = function (actionCallback) { };
+    LoginView.prototype.mouseOutHappened = function (actionCallback) { };
+    LoginView.prototype.mouseOverHappened = function (actionCallback) { };
     LoginView.prototype.updateHappened = function () {
         this.displayHtml();
     };
@@ -63,5 +60,4 @@ var LoginView = /** @class */ (function () {
     return LoginView;
 }());
 export { LoginView };
-//export const loginForm = new LoginView().loginForm
 //# sourceMappingURL=LoginView.js.map

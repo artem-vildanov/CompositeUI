@@ -63,15 +63,11 @@ export class LoginView implements EventListener {
         this.loginForm.attachUpdateListener(this)
     }
 
-    clickHappened(actionCallback: () => void): void {
+    clickHappened(actionCallback: () => void): void {}
 
-    }
+    mouseOutHappened(actionCallback: () => void): void {}
 
-    mouseOutHappened(actionCallback: () => void): void {
-    }
-
-    mouseOverHappened(actionCallback: () => void): void {
-    }
+    mouseOverHappened(actionCallback: () => void): void {}
 
     updateHappened(): void {
         this.displayHtml()
@@ -84,4 +80,3 @@ export class LoginView implements EventListener {
         }  
     }
 }
-//export const loginForm = new LoginView().loginForm

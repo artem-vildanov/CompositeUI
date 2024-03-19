@@ -50,7 +50,6 @@ var ComponentsCollection = /** @class */ (function (_super) {
                 completeCollection.addComponentsCollection(childrenComponents);
             }
         });
-        console.log(completeCollection);
         return completeCollection;
     };
     return ComponentsCollection;
