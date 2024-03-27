@@ -10,7 +10,7 @@ export abstract class CompositeComponent extends Component
         this.childrenComponents = componentParams.childrenComponents
     }
 
-    protected abstract makeCompositeHtml(): string;
+    protected abstract makeComponentHtml(): string;
 
     // Массив html кодов дочерних компонентов
     protected makeChildrenComponentsHtml(): Array<string> {
@@ -23,33 +23,5 @@ export abstract class CompositeComponent extends Component
         }
 
         return childrenHtml
-    }
-
-    clickHappened(actionCallback: () => void): void {
-        actionCallback.bind(this)
-        actionCallback()
-        this.html = this.makeCompositeHtml();
-        this.updateNotify()
-    }
-
-    mouseOutHappened(actionCallback: () => void): void {
-        actionCallback.bind(this)
-        actionCallback()
-        this.html = this.makeCompositeHtml();
-        this.updateNotify()
-    }
-
-    mouseOverHappened(actionCallback: () => void): void {
-        actionCallback.bind(this)
-        actionCallback()
-        this.html = this.makeCompositeHtml();
-        this.updateNotify()
-    }
-
-    updateHappened(): void {
-        this.html = this.makeCompositeHtml()
-        this.updateNotify()
-        console.log('composite component update')
-        
     }
 }

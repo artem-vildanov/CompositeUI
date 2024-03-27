@@ -6,7 +6,7 @@ export abstract class Component {
     // массив наблюдателей
     private listeners: Array<any>; // вынуждены использовать тип any - плохая практика
 
-    //producer methods
+    // producer methods
     addListener(newListener): void {
         this.listeners.push(newListener);
     }
@@ -17,9 +17,9 @@ export abstract class Component {
         })
     }
     
-    //listener methods
+    // listener methods
     actionHappened(): void {
-        console.log('action happened')
+        // some action
     }
 }
 

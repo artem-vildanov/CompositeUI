@@ -7,13 +7,11 @@ export class ButtonLeaf extends LeafComponent
 
     constructor(componentParams: ComponentParams) {
         super(componentParams);
-        this.html = this.makeLeafHtml();
+        this.html = this.makeComponentHtml();
     }
 
-    protected makeLeafHtml(): string {
+    protected makeComponentHtml(): string {
         const buttonCssClass = this.componentParams.cssClass === '' ? this.defaultCssClass : this.componentParams.cssClass
         return `<button type="${this.componentParams.type}" class="${buttonCssClass}" style="${this.componentParams.getStyles()}">${this.componentParams.text}</button>`;
     }
-
-
 }

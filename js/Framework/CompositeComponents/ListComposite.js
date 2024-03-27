@@ -23,7 +23,7 @@ var ListComposite = /** @class */ (function (_super) {
         _this.html = _this.makeCompositeHtml();
         return _this;
     }
-    ListComposite.prototype.makeCompositeHtml = function () {
+    ListComposite.prototype.makeComponentHtml = function () {
         var childrenComponentsHtmlGroup = this.makeChildrenComponentsHtml();
         var listHtmlDeclaration = this.makeListHtmlDeclaration();
         var listHtmlBody = this.makeListHtmlBody(childrenComponentsHtmlGroup);

@@ -22,7 +22,7 @@ var TextAreaLeaf = /** @class */ (function (_super) {
         _this.html = _this.makeLeafHtml();
         return _this;
     }
-    TextAreaLeaf.prototype.makeLeafHtml = function () {
+    TextAreaLeaf.prototype.makeComponentHtml = function () {
         var textAreaCssClass = this.componentParams.cssClass === '' ? this.defaultCssClass : this.componentParams.cssClass;
         return "<div class=\"".concat(textAreaCssClass, "\" style=\"").concat(this.componentParams.getStyles(), "\">").concat(this.componentParams.text, "</div>");
     };

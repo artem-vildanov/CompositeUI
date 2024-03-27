@@ -22,7 +22,7 @@ var InputFieldLeaf = /** @class */ (function (_super) {
         _this.html = _this.makeLeafHtml();
         return _this;
     }
-    InputFieldLeaf.prototype.makeLeafHtml = function () {
+    InputFieldLeaf.prototype.makeComponentHtml = function () {
         var inputFieldCssClass = this.componentParams.cssClass === '' ? this.defaultCssClass : this.componentParams.cssClass;
         return "<input type=\"".concat(this.componentParams.type, "\" class=\"").concat(inputFieldCssClass, "\" placeholder=\"").concat(this.componentParams.text, "\" style=\"").concat(this.componentParams.getStyles(), "\">");
     };

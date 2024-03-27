@@ -23,23 +23,23 @@ var LeafComponent = /** @class */ (function (_super) {
     LeafComponent.prototype.clickHappened = function (actionCallback) {
         actionCallback.bind(this);
         actionCallback();
-        this.html = this.makeLeafHtml();
+        this.html = this.makeComponentHtml();
         this.updateNotify();
     };
     LeafComponent.prototype.mouseOutHappened = function (actionCallback) {
         actionCallback.bind(this);
         actionCallback();
-        this.html = this.makeLeafHtml();
+        this.html = this.makeComponentHtml();
         this.updateNotify();
     };
     LeafComponent.prototype.mouseOverHappened = function (actionCallback) {
         actionCallback.bind(this);
         actionCallback();
-        this.html = this.makeLeafHtml();
+        this.html = this.makeComponentHtml();
         this.updateNotify();
     };
     LeafComponent.prototype.updateHappened = function () {
-        this.html = this.makeLeafHtml();
+        this.html = this.makeComponentHtml();
     };
     return LeafComponent;
 }(Component));

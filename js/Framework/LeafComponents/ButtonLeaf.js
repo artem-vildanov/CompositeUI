@@ -22,7 +22,7 @@ var ButtonLeaf = /** @class */ (function (_super) {
         _this.html = _this.makeLeafHtml();
         return _this;
     }
-    ButtonLeaf.prototype.makeLeafHtml = function () {
+    ButtonLeaf.prototype.makeComponentHtml = function () {
         var buttonCssClass = this.componentParams.cssClass === '' ? this.defaultCssClass : this.componentParams.cssClass;
         return "<button type=\"".concat(this.componentParams.type, "\" class=\"").concat(buttonCssClass, "\" style=\"").concat(this.componentParams.getStyles(), "\">").concat(this.componentParams.text, "</button>");
     };

@@ -7,10 +7,10 @@ export class FormComposite extends CompositeComponent
 
     constructor(componentParams: ComponentParams) {
         super(componentParams);
-        this.html = this.makeCompositeHtml();
+        this.html = this.makeComponentHtml();
     }
 
-    protected makeCompositeHtml(): string {
+    protected makeComponentHtml(): string {
         const childrenComponentsHtmlGroup: Array<string> = this.makeChildrenComponentsHtml();
 
         const formHtmlDeclaration = this.makeFormHtmlDeclaration();

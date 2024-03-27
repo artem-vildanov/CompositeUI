@@ -7,10 +7,10 @@ export class TextAreaLeaf extends LeafComponent
 
     constructor(componentParams: ComponentParams) {
         super(componentParams);
-        this.html = this.makeLeafHtml();
+        this.html = this.makeComponentHtml();
     }
 
-    protected makeLeafHtml(): string {
+    protected makeComponentHtml(): string {
         const textAreaCssClass = this.componentParams.cssClass === '' ? this.defaultCssClass : this.componentParams.cssClass
         return `<div class="${textAreaCssClass}" style="${this.componentParams.getStyles()}">${this.componentParams.text}</div>`;
     }

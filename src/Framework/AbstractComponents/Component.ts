@@ -17,6 +17,8 @@ export abstract class Component implements EventProducer, EventListener {
         return Math.random().toString(36).substring(1, 6) + Math.random().toString().substring(3);
     }
 
+    protected abstract makeComponentHtml(): string;
+
     getComponentParams(): ComponentParams {
         return this.componentParams
     }
@@ -24,6 +26,8 @@ export abstract class Component implements EventProducer, EventListener {
     getHtml(): string {
         return this.html;
     }
+
+    // interfaces implementations
 
     private addOnMouseOverHtmlAttribute(): void { 
         if (!this.html) {
@@ -142,8 +146,30 @@ export abstract class Component implements EventProducer, EventListener {
     }
 
     // EventListener methods
-    abstract updateHappened(): void
-    abstract clickHappened(actionCallback: () => void): void
-    abstract mouseOutHappened(actionCallback: () => void): void
-    abstract mouseOverHappened(actionCallback: () => void): void
+    clickHappened(actionCallback: () => void): void {
+        actionCallback.bind(this)
+        actionCallback()
+        this.html = this.makeComponentHtml();
+        this.updateNotify()
+    }
+
+    mouseOutHappened(actionCallback: () => void): void {
+        actionCallback.bind(this)
+        actionCallback()
+        this.html = this.makeComponentHtml();
+        this.updateNotify()
+    }
+
+    mouseOverHappened(actionCallback: () => void): void {
+        actionCallback.bind(this)
+        actionCallback()
+        this.html = this.makeComponentHtml();
+        this.updateNotify()
+    }
+
+    updateHappened(): void {
+        this.html = this.makeComponentHtml()
+        this.updateNotify()
+    }
+
 }

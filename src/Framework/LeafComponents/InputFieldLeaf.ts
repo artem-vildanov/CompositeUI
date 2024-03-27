@@ -6,10 +6,10 @@ export class InputFieldLeaf extends LeafComponent
     defaultCssClass = 'form-control m-1'
     constructor(componentParams: ComponentParams) {
         super(componentParams);
-        this.html = this.makeLeafHtml();
+        this.html = this.makeComponentHtml();
     }
 
-    protected makeLeafHtml(): string {
+    protected makeComponentHtml(): string {
         const inputFieldCssClass = this.componentParams.cssClass === '' ? this.defaultCssClass : this.componentParams.cssClass
         return `<input type="${this.componentParams.type}" class="${inputFieldCssClass}" placeholder="${this.componentParams.text}" style="${this.componentParams.getStyles()}">`;
     }

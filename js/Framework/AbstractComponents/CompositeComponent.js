@@ -35,23 +35,23 @@ var CompositeComponent = /** @class */ (function (_super) {
     CompositeComponent.prototype.clickHappened = function (actionCallback) {
         actionCallback.bind(this);
         actionCallback();
-        this.html = this.makeCompositeHtml();
+        this.html = this.makeComponentHtml();
         this.updateNotify();
     };
     CompositeComponent.prototype.mouseOutHappened = function (actionCallback) {
         actionCallback.bind(this);
         actionCallback();
-        this.html = this.makeCompositeHtml();
+        this.html = this.makeComponentHtml();
         this.updateNotify();
     };
     CompositeComponent.prototype.mouseOverHappened = function (actionCallback) {
         actionCallback.bind(this);
         actionCallback();
-        this.html = this.makeCompositeHtml();
+        this.html = this.makeComponentHtml();
         this.updateNotify();
     };
     CompositeComponent.prototype.updateHappened = function () {
-        this.html = this.makeCompositeHtml();
+        this.html = this.makeComponentHtml();
         this.updateNotify();
         console.log('composite component update');
     };
